@@ -26,30 +26,41 @@
   RadioGroup.prototype.handleKeyDown = function(e) {
     switch(e.keyCode) {
 
-      case VK_UP:
+      case VK_UP: 
       case VK_LEFT: {
 
         e.preventDefault();
-
-        // This seems like a good place to do some stuff :)
+        
+        if (this.focusedIdx === 0) {
+          this.focusedIdx = this.buttons.length - 1;
+        } else {
+          this.focusedIdx--;
+        }
+        
 
         break;
 
       }
 
-      case VK_DOWN:
-      case VK_RIGHT: {
+      case VK_RIGHT:
 
-        e.preventDefault();
+      case VK_DOWN: {
+          e.preventDefault();
 
-        // This seems like a good place to do some stuff :)
+        / if (this.focusedIdx === this.buttons.length - 1) {
+          this.focusedIdx = 0;
+        } else {
+          this.focusedIdx++;
+        }
 
         break;
       }
 
-    }
 
-    this.changeFocus(this.focusedIdx); // <-- Hmm, interesting...
+      }
+    
+      this.changeFocus(this.focusedIdx); 
+    // <-- Hmm, interesting...
   };
 
   RadioGroup.prototype.changeFocus = function(idx) {

@@ -24,6 +24,8 @@
     this.el.addEventListener('click', this.handleClick.bind(this));
 
     // Any more initialization to do here?
+    this.buttons.setAttribute('aria-checked','');
+    this.buttons.setAttribute('tabindex','');
 
     var firstButton = true;
     for (var button of this.buttons) {
@@ -34,7 +36,7 @@
         button.tabIndex = "-1";
       }
 
-      // What about here?
+      
     }
 
   }
@@ -100,6 +102,7 @@
     this.focusedButton.setAttribute('checked', '');
 
     // ... we probably want to do some stuff here, too ...
+    this.focusedButton.setAttribute('aria-checked','true');
 
   };
 
